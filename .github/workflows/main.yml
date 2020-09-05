@@ -13,7 +13,7 @@ jobs:
       - name: Build
         run: |
           npm install
-          npm run-script build
+          npm run build
         env:
           REACT_APP_AUTH_TOKEN: ${{ secrets.REACT_APP_AUTH_TOKEN }}
           REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
