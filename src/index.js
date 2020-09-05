@@ -44,6 +44,7 @@ const routing = (
         <li>
           <Link to="/dashboard">Dashboard</Link>
         </li>
+
         {/* {firebase.auth().onAuthStateChanged(async (_usr) => {
           console.log(_usr);
           if (!_usr) {

@@ -44,7 +44,7 @@ class DashboardComponent extends React.Component {
       if (!_usr) {
         this.props.history.push("/login");
       } else {
-        // console.log(_usr.email);
+        console.log(_usr.email);
         await firebase
           .firestore()
           .collection("chats")
