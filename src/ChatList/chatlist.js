@@ -73,6 +73,9 @@ class ChatListComponent extends React.Component {
     } else {
       return (
         <main className={classes.root}>
+          <Typography component="h5" variant="s5">
+            No chats to display
+          </Typography>
           <Button
             variant="contained"
             fullWidth
