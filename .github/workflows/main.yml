@@ -9,18 +9,19 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [10.x, 12.x, 14.x]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-      - name: Build
-        run: |
-          npm install
-          npm run build
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build
         env:
           REACT_APP_AUTH_TOKEN: ${{ secrets.REACT_APP_AUTH_TOKEN }}
           REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
@@ -30,6 +31,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: dist
+          FOLDER: build
