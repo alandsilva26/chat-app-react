@@ -12,21 +12,21 @@ jobs:
         node-version: [10.x, 12.x, 14.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install dependencies
-      run: npm install
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build
-      run: npm run build
-      env:
-        REACT_APP_AUTH_TOKEN: ${{ secrets.REACT_APP_AUTH_TOKEN }}
-        REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
-        REACT_APP_DB_URL: ${{ secrets.REACT_APP_DB_URL }}
-        REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
+      - name: Build
+        run: npm run build
+        env:
+          REACT_APP_AUTH_TOKEN: ${{ secrets.REACT_APP_AUTH_TOKEN }}
+          REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
+          REACT_APP_DB_URL: ${{ secrets.REACT_APP_DB_URL }}
+          REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
