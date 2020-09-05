@@ -22,11 +22,11 @@ jobs:
 
     - name: Build
       run: npm run build
-        env:
-          REACT_APP_AUTH_TOKEN: ${{ secrets.REACT_APP_AUTH_TOKEN }}
-          REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
-          REACT_APP_DB_URL: ${{ secrets.REACT_APP_DB_URL }}
-          REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
+      env:
+        REACT_APP_AUTH_TOKEN: ${{ secrets.REACT_APP_AUTH_TOKEN }}
+        REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
+        REACT_APP_DB_URL: ${{ secrets.REACT_APP_DB_URL }}
+        REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
