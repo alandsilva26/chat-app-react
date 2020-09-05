@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Chat App (Incomplete)
+Fully functional instant messaging application using React and Firebase
 
 ## Available Scripts
 
