@@ -38,9 +38,35 @@ const routing = (
         <li>
           <Link to="/signup">Signup</Link>
         </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+        {/* {firebase.auth().onAuthStateChanged(async (_usr) => {
+          console.log(_usr);
+          if (!_usr) {
+            console.log("HERE");
+            return <div>HELFJSLFJ</div>;
+          } else {
+            return (
+              <li>
+                <a
+                  href="/"
+                  onClick={() => {
+                    firebase.auth().signOut();
+                  }}
+                >
+                  Signout
+                </a>
+              </li>
+            );
+          }
+        })} */}
       </ul>
       <hr />
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={LoginComponent} />
       <Route path="/signup" component={SignupComponent} />
       <Route path="/login" component={LoginComponent} />
       <Route path="/dashboard" component={DashboardComponent} />

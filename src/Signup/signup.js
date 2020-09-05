@@ -30,6 +30,9 @@ class SignupComponent extends React.Component {
           <Typography component="h1" variant="h5">
             Sign Up!
           </Typography>
+          <Typography component="h5" variant="s6" className={classes.errorText}>
+            Please do not use passwords you have used elsewhere.
+          </Typography>
           <form className={classes.form} onSubmit={(e) => this.submitSignup(e)}>
             <FormControl required fullWidth margin="normal">
               <InputLabel htmlFor="signup-email-input">
@@ -136,10 +139,6 @@ class SignupComponent extends React.Component {
           .then(
             () => {
               this.props.history.push("/dashboard");
-            },
-            (dbError) => {
-              console.log(dbError);
-              this.setState({ signupError: "Failed to add user" });
             },
             (authError) => {
               console.log(authError);
