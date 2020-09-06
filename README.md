@@ -1,6 +1,13 @@
-# Chat App (Incomplete)
+# Chat App 
 ![Deploy to GitHub Pages](https://github.com/alandsilva26/chat-app-react/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)\
-Fully functional instant messaging application using React and Firebase
+Fully functional instant messaging application using React and Firebase. 
+* User can sign up with email and password.
+* User can send a message to existing user which will show up as new message if the user is online
+
+## Preview
+![Application Preview](./screenshots/4.png)
+![Firebase firestore preview](./screenshots/2.png)
+![Authentication preview](./screenshots/3.png)
 
 ## Available Scripts
 
