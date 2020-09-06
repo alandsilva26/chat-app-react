@@ -60,7 +60,7 @@ class DashboardComponent extends React.Component {
         messages: firebase.firestore.FieldValue.arrayUnion({
           message: message,
           sender: this.state.email,
-          timestamp: Date.now(),
+          timestamp: new Date().toISOString(),
         }),
         receiverHasRead: false,
       });

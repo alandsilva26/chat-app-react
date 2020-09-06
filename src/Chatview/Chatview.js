@@ -9,7 +9,17 @@ class ChatViewComponent extends React.Component {
       container.scrollTo(0, container.scrollHeight);
     }
   };
-
+  formatDate = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+    };
+    return new Date(dateString).toLocaleDateString("en-in", options);
+  };
   render() {
     const { classes, chat, user } = this.props;
     if (chat == undefined) {
@@ -23,10 +33,7 @@ class ChatViewComponent extends React.Component {
           </div>
           <main id="chatview-container" className={classes.content}>
             {chat.messages.map((_msg, _index) => {
-              //   console.log(_msg.sender, user, "sender");
-              _msg.timestamp !== undefined
-                ? console.log(Date(_msg.timestamp))
-                : console.log("undefined");
+              console.log(this.formatDate(_msg.timestamp));
               return (
                 <div
                   key={_index}
@@ -49,7 +56,7 @@ class ChatViewComponent extends React.Component {
                         padding: "8px",
                       }}
                     >
-                      {() => _msg.timestamp.toDateString()}
+                      {this.formatDate(_msg.timestamp)}
                     </div>
                   )}
                 </div>
