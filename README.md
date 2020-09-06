@@ -7,6 +7,8 @@ Fully functional instant messaging application using React and Firebase.
 ## Preview
 ![Application Preview](./screenshots/4.png)
 ![Firebase firestore preview](./screenshots/2.png)
+![Log in Preview](./screenshots/5.png)
+![Sign upPreview](./screenshots/6.png)
 ![Authentication preview](./screenshots/3.png)
 
 ## Available Scripts
