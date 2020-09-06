@@ -33,6 +33,10 @@ class SignupComponent extends React.Component {
           <Typography component="h5" variant="s6" className={classes.errorText}>
             Please do not use passwords you have used elsewhere.
           </Typography>
+          <Typography component="h5" variant="s6">
+            Sign in is via firebase auth and no passwords are saved. Use dummy
+            email if needed.
+          </Typography>
           <form className={classes.form} onSubmit={(e) => this.submitSignup(e)}>
             <FormControl required fullWidth margin="normal">
               <InputLabel htmlFor="signup-email-input">

@@ -1,7 +1,7 @@
 const styles = (theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    height: "calc(100% - 50px)",
+    height: "calc(100% - 35px)",
     position: "absolute",
     left: "0",
     width: "300px",
@@ -14,9 +14,9 @@ const styles = (theme) => ({
     borderRadius: "0px",
   },
   unreadMessage: {
-    color: "red",
+    color: "red !important",
     position: "absolute",
-    top: "0",
+    top: "25%",
     right: "5px",
   },
 });

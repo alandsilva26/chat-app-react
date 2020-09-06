@@ -38,7 +38,9 @@ class ChatTextBoxComponent extends React.Component {
         });
   messageValid = (txt) => txt && txt.replace(/\s/g, "").length;
 
-  userClickedInput = () => {};
+  userClickedInput = () => {
+    this.props.messageReadFn();
+  };
 
   submitMessage = () => {
     // console.log("HERE");
