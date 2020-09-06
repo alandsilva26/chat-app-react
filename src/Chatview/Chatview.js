@@ -23,15 +23,35 @@ class ChatViewComponent extends React.Component {
           </div>
           <main id="chatview-container" className={classes.content}>
             {chat.messages.map((_msg, _index) => {
-              console.log(_msg.sender, user, "sender");
+              //   console.log(_msg.sender, user, "sender");
+              _msg.timestamp !== undefined
+                ? console.log(Date(_msg.timestamp))
+                : console.log("undefined");
               return (
                 <div
                   key={_index}
                   className={
                     _msg.sender == user ? classes.userSent : classes.friendSent
                   }
+                  style={
+                    _msg.timestamp == undefined
+                      ? { paddingBottom: "10px" }
+                      : null
+                  }
                 >
                   {_msg.message}
+                  {_msg.timestamp == undefined ? null : (
+                    <div
+                      style={{
+                        display: "flex",
+                        fontSize: "0.8em",
+                        justifyContent: "flex-end",
+                        padding: "8px",
+                      }}
+                    >
+                      {() => _msg.timestamp.toDateString()}
+                    </div>
+                  )}
                 </div>
               );
             })}

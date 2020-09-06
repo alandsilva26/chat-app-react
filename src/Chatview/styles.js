@@ -16,7 +16,8 @@ const styles = (theme) => ({
   userSent: {
     float: "right",
     clear: "both",
-    padding: "20px",
+    padding: "10px",
+    paddingBottom: "0px",
     boxSizing: "border-box",
     wordWrap: "break-word",
     marginTop: "10px",
@@ -29,7 +30,8 @@ const styles = (theme) => ({
   friendSent: {
     float: "left",
     clear: "both",
-    padding: "20px",
+    padding: "10px",
+    paddingBottom: "0px",
     boxSizing: "border-box",
     wordWrap: "break-word",
     marginTop: "10px",

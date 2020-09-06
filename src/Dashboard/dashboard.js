@@ -2,6 +2,7 @@ import React from "react";
 import ChatListComponent from "../ChatList/chatlist";
 import { Button, withStyles } from "@material-ui/core";
 import ChatViewComponent from "../Chatview/Chatview";
+import ChatTextBoxComponent from "../Chattextbox/Chattextbox";
 import styles from "./styles";
 
 const firebase = require("firebase");
@@ -35,12 +36,37 @@ class DashboardComponent extends React.Component {
             chat={this.state.chats[this.state.selectedChat]}
           />
         ) : null}
+        {this.state.selectedChat !== null && !this.state.newChatFormVisible ? (
+          <ChatTextBoxComponent submitMessageFn={this.submitMessage} />
+        ) : null}
         <Button onClick={this.signOut} className={classes.signOutBtn}>
           Sign Out
         </Button>
       </div>
     );
   }
+
+  submitMessage = (message) => {
+    const docKey = this.buildDocKey(
+      this.state.chats[this.state.selectedChat].users.filter(
+        (_usr) => _usr !== this.state.email
+      )[0]
+    );
+    firebase
+      .firestore()
+      .collection("chats")
+      .doc(docKey)
+      .update({
+        messages: firebase.firestore.FieldValue.arrayUnion({
+          message: message,
+          sender: this.state.email,
+          timestamp: Date.now(),
+        }),
+        receiverHasRead: false,
+      });
+  };
+
+  buildDocKey = (friend) => [this.state.email, friend].sort().join(":");
 
   selectChat = (chatIndex) => {
     this.setState({
@@ -65,7 +91,6 @@ class DashboardComponent extends React.Component {
           .collection("chats")
           .where("users", "array-contains", _usr.email)
           .onSnapshot(async (res) => {
-            // console.log(res);
             const chats = res.docs.map((_doc) => _doc.data());
             await this.setState({ email: _usr.email, chats: chats });
           });
