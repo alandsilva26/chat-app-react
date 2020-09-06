@@ -31,7 +31,7 @@ firebase.initializeApp({
 const routing = (
   <HashRouter basename="/">
     <div>
-      <ul>
+      {/* <ul id="navBar">
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -45,7 +45,7 @@ const routing = (
           <Link to="/dashboard">Dashboard</Link>
         </li>
 
-        {/* {firebase.auth().onAuthStateChanged(async (_usr) => {
+        {firebase.auth().onAuthStateChanged(async (_usr) => {
           console.log(_usr);
           if (!_usr) {
             console.log("HERE");
@@ -64,9 +64,9 @@ const routing = (
               </li>
             );
           }
-        })} */}
+        })} 
       </ul>
-      <hr />
+      <hr /> */}
       <Route exact path="/" component={LoginComponent} />
       <Route path="/signup" component={SignupComponent} />
       <Route path="/login" component={LoginComponent} />
