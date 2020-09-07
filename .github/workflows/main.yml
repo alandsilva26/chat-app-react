@@ -28,20 +28,20 @@ jobs:
       - name: Display files
         run: cat ./package.json 
       
-#       - name: Install dependencies
-#         run: npm install
+      - name: Install dependencies
+        run: npm install
 
-#       - name: Build
-#         run: CI=false npm run build
-#         env:
-#           REACT_APP_AUTH_TOKEN: ${{ secrets.REACT_APP_AUTH_TOKEN }}
-#           REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
-#           REACT_APP_DB_URL: ${{ secrets.REACT_APP_DB_URL }}
-#           REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
+      - name: Build
+        run: CI=false npm run build
+        env:
+          REACT_APP_AUTH_TOKEN: ${{ secrets.REACT_APP_AUTH_TOKEN }}
+          REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
+          REACT_APP_DB_URL: ${{ secrets.REACT_APP_DB_URL }}
+          REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
 
-#       - name: Deploy
-#         uses: JamesIves/github-pages-deploy-action@releases/v3
-#         with:
-#           GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-#           BRANCH: gh-pages
-#           FOLDER: build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
