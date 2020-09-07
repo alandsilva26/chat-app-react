@@ -21,7 +21,7 @@ jobs:
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
-          find: "https://alandsilva26.github.io/chat-app-react"
+          find: "http://alandsilva26.github.io/chat-app-react"
           replace: "yes this works"
           include: "package.json"
           
